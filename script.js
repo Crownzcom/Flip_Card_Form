@@ -193,8 +193,8 @@ privacyPolicyCheckbox.addEventListener('change', function() {
 // Send data to Cloudflare Worker when the Send button is clicked
 sendDataButton.addEventListener('click', async function() {
   const data = {
-      firstName: firstNameInput.value,
-      email: emailInput.value
+    Name: firstNameInput.value,
+    Email: emailInput.value
   };
 
   try {
