@@ -192,28 +192,41 @@ privacyPolicyCheckbox.addEventListener('change', function() {
 
 // Send data to Cloudflare Worker when the Send button is clicked
 sendDataButton.addEventListener('click', async function() {
-    const data = {
-        firstName: firstNameInput.value,
-        email: emailInput.value
-    };
+  const data = {
+      firstName: firstNameInput.value,
+      email: emailInput.value
+  };
 
-    try {
-        const response = await fetch('https://flipcardgame.derrickmal123.workers.dev/', {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
+  try {
+      const response = await fetch('https://flipcardgame.derrickmal123.workers.dev/', {
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers: {
+              'Content-Type': 'application/json'
+          }
+      });
 
-        const result = await response.json();
-        if (result.success) {
-            alert('Data sent successfully!');
-        } else {
-            alert('Failed to send data. Please try again.');
-        }
-    } catch (error) {
-        console.error('Error sending data:', error);
-        alert('An error occurred. Please try again.');
-    }
+      if (!response.ok) {
+          throw new Error(`Server responded with ${response.status}`);
+      }
+
+      const text = await response.text();
+
+      let result;
+      try {
+          result = JSON.parse(text);
+      } catch (err) {
+          console.error("Failed to parse response:", text);
+          throw err;
+      }
+
+      if (result.success) {
+          alert('Data sent successfully!');
+      } else {
+          alert('Failed to send data. Please try again.');
+      }
+  } catch (error) {
+      console.error('Error sending data:', error);
+      alert('An error occurred. Please try again.');
+  }
 });
