@@ -31,6 +31,21 @@ document.addEventListener('DOMContentLoaded', function () {
     startTimer()
     replayButton.classList.add('hidden') // Hide the "Play Again" button
   }
+
+  // Checkbox listener to enable/disable send button
+  document.getElementById('privacyPolicy').addEventListener('change', function() {
+    document.getElementById('sendButton').disabled = !this.checked;
+  });
+
+  // Form submission listener
+  document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const firstName = document.getElementById('firstName').value;
+    const email = document.getElementById('email').value;
+
+    saveToCSV(firstName, email);
+  });
 })
 
 function generateCards (pairs) {
@@ -82,51 +97,15 @@ function shuffleCards () {
   cardsArray.forEach(card => gameBoard.appendChild(card))
 }
 
-/*... Adjust Card LayOut ...*/ 
-// function adjustLayout() {
-//   cards = document.querySelectorAll('.card');
-//   totalCards = cards.length;
-//   let columns = Math.ceil(Math.sqrt(totalCards));
-//   let rows = Math.ceil(totalCards / columns);
-
-//   let cardWidth = 100 / columns;
-
-//   console.log(`Rows: ${rows}, Columns: ${columns}`); // Add this line
-
-//   cards.forEach(card => {
-//       card.style.flex = `1 0 calc(${cardWidth}% - 10px)`;
-//   });
-// }
-// function adjustLayout() {
-//   cards = document.querySelectorAll('.card');
-//   totalCards = cards.length;
-//   let columns = Math.ceil(Math.sqrt(totalCards));
-//   let rows = Math.ceil(totalCards / columns);
-
-//   let gameBoard = document.querySelector('.game-board');
-//   gameBoard.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
-
-//   console.log(`Rows: ${rows}, Columns: ${columns}`);
-// }
 function adjustLayout() {
   cards = document.querySelectorAll('.card');
   totalCards = cards.length;
   let columns = Math.ceil(Math.sqrt(totalCards));
+  let rows = Math.ceil(totalCards / columns);
 
   let gameBoard = document.querySelector('.game-board');
-  
-  // Check if the viewport width is larger than our largest breakpoint (700px in this case)
-  if (window.innerWidth > 700) {
-    gameBoard.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
-  } else {
-    gameBoard.style.gridTemplateColumns = ""; // Reset to default so media queries can take over
-  }
+  gameBoard.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
 }
-
-// Add an event listener to adjust the layout when the window is resized
-window.addEventListener('resize', adjustLayout);
-
-//................................................................
 
 function attachCardListeners () {
   cards.forEach(card => {
@@ -150,16 +129,13 @@ function checkMatch () {
   if (pairs[card1] === card2 || pairs[card2] === card1) {
     matchedPairs++
 
-    // Animation for matched cards
     flippedCards.forEach(card => {
       card.style.animation = 'matched 0.5s'
       card.addEventListener('animationend', function () {
         card.style.animation = ''
       })
     })
-    //................................................................
 
-    // Attach the transitionend event to the second flipped card's front
     let cardFront = flippedCards[1].querySelector('.card-front')
     cardFront.addEventListener('transitionend', function onEnd () {
       if (matchedPairs === totalCards / 2) {
@@ -170,14 +146,13 @@ function checkMatch () {
 
     flippedCards = []
   } else {
-    // Animation for unmatched cards
     flippedCards.forEach(card => {
       card.style.animation = 'unmatched 0.5s alternate 2'
       card.addEventListener('animationend', function () {
         card.style.animation = ''
       })
     })
-    //................................................................
+
     setTimeout(() => {
       flippedCards[0].classList.remove('flipped')
       flippedCards[1].classList.remove('flipped')
@@ -185,9 +160,7 @@ function checkMatch () {
     }, 1000)
   }
 }
-//................................................................
 
-/* ... Timer ...*/
 function startTimer () {
   startTime = Date.now()
   timerInterval = setInterval(updateTimer, 1000)
@@ -206,9 +179,7 @@ function updateTimer () {
 function stopTimer () {
   clearInterval(timerInterval)
 }
-//................................................................
 
-/*...Intro pop-up modal...*/
 function showIntroModal () {
   const modal = document.getElementById('introModal')
   modal.style.display = 'block'
@@ -220,31 +191,36 @@ function showIntroModal () {
   }
 }
 
-/* ...Pop-up...*/
 function showWinModal () {
   const modal = document.getElementById('winModal')
-  const timeTaken = document.getElementById('timer').textContent
-  modal.querySelector(
-    'p'
-  ).textContent = `You've matched all the cards in ${timeTaken}!`
   modal.style.display = 'block'
 
   stopTimer() // Stop the timer
+}
 
-  modal.style.display = 'block'
+function saveToCSV(firstName, email) {
+    const csvContent = `"${firstName}","${email}"\n`;
 
-  const closeModal = document.getElementById('closeModal')
-  closeModal.onclick = function () {
-    modal.style.display = 'none'
-    document.getElementById('replay').classList.remove('hidden') // Show the "Play Again" button
-  }
-
-  const playAgain = document.getElementById('playAgain')
-  playAgain.onclick = function () {
-    modal.style.display = 'none'
-    // Reset game state
-    matchedPairs = 0
-    cards.forEach(card => card.classList.remove('flipped'))
-    shuffleCards()
-  }
+    // Check if the CSV file exists
+    fetch('data.csv')
+    .then(response => {
+        if(response.status === 404) {
+            // If the file doesn't exist, create it
+            return fetch('data.csv', {
+                method: 'POST',
+                body: 'First Name,Email\n' + csvContent
+            });
+        } else {
+            // If the file exists, append the new data
+            return response.text().then(data => {
+                return fetch('data.csv', {
+                    method: 'PUT',
+                    body: data + csvContent
+                });
+            });
+        }
+    })
+    .catch(error => {
+        console.error('Error saving to CSV:', error);
+    });
 }

@@ -164,6 +164,36 @@ button:hover {
     grid-template-columns: repeat(4, 1fr);
 }
 
+/* ... Contact Form ... */
+#contactForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#contactForm label {
+    font-weight: bold;
+}
+
+#contactForm input[type="text"], #contactForm input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#sendButton {
+    align-self: center;
+    margin-top: 10px;
+}
+
 /* ... KeyFrames ... */
 @keyframes pulsate {
     0% {
