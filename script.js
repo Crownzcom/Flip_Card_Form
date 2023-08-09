@@ -207,26 +207,20 @@ sendDataButton.addEventListener('click', async function() {
       });
 
       if (!response.ok) {
-          throw new Error(`Server responded with ${response.status}`);
+          throw new Error(`Server responded with ${response.status}: ${response.statusText}`);
       }
 
-      const text = await response.text();
+      const result = await response.json();
 
-      let result;
-      try {
-          result = JSON.parse(text);
-      } catch (err) {
-          console.error("Failed to parse response:", text);
-          throw err;
-      }
-
-      if (result.success) {
-          alert('Data sent successfully!');
-      } else {
-          alert('Failed to send data. Please try again.');
-      }
+      if (result.result === "success") {
+        alert('Data sent successfully!');
+    } else {
+        alert('Failed to send data. Please try again.');
+    }
+    
   } catch (error) {
       console.error('Error sending data:', error);
-      alert('An error occurred. Please try again.');
+      alert(`An error occurred: ${error.message}`);
   }
 });
+
