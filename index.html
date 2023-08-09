@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City-Country Match Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- ... Intro modal to prompt the user ... -->
+    <div class="modal" id="introModal">
+        <div class="modal-content">
+            <h2>Welcome!</h2>
+            <p>Can you match cities to the countries they belong?</p>
+            <div class="modal-buttons">
+                <button id="startGame">Yes</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="game-container">
+        <!-- ...Timer... -->
+        <div class="game-info">
+            <span id="timer">00:00</span>
+            <button id="replay" class="hidden">Play Again</button>
+        </div>
+
+        <!-- ... The cards are dynamically generated here ... -->
+        <div class="game-board">
+            <!-- Cards will be generated and appended here by JavaScript -->
+        </div>
+    </div>
+
+    <!-- ...Congratulatory Pop-up ... -->
+    <div class="modal" id="winModal">
+        <div class="modal-content">
+            <h2>Congratulations!</h2>
+            <p></p>
+            <div class="modal-buttons">
+                <button id="closeModal">Close</button>
+                <button id="playAgain">Play Again</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
