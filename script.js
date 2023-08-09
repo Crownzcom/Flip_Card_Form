@@ -31,21 +31,6 @@ document.addEventListener('DOMContentLoaded', function () {
     startTimer()
     replayButton.classList.add('hidden') // Hide the "Play Again" button
   }
-
-  // Checkbox listener to enable/disable send button
-  document.getElementById('privacyPolicy').addEventListener('change', function() {
-    document.getElementById('sendButton').disabled = !this.checked;
-  });
-
-  // Form submission listener
-  document.getElementById('contactForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const firstName = document.getElementById('firstName').value;
-    const email = document.getElementById('email').value;
-
-    saveToCSV(firstName, email);
-  });
 })
 
 function generateCards (pairs) {
@@ -100,9 +85,7 @@ function shuffleCards () {
 function adjustLayout() {
   cards = document.querySelectorAll('.card');
   totalCards = cards.length;
-  let columns = Math.ceil(Math.sqrt(totalCards));
-  let rows = Math.ceil(totalCards / columns);
-
+  let columns = Math.max(3, Math.ceil(Math.sqrt(totalCards))); // Ensure a minimum of 3 columns
   let gameBoard = document.querySelector('.game-board');
   gameBoard.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
 }
@@ -128,7 +111,6 @@ function checkMatch () {
 
   if (pairs[card1] === card2 || pairs[card2] === card1) {
     matchedPairs++
-
     flippedCards.forEach(card => {
       card.style.animation = 'matched 0.5s'
       card.addEventListener('animationend', function () {
@@ -152,7 +134,6 @@ function checkMatch () {
         card.style.animation = ''
       })
     })
-
     setTimeout(() => {
       flippedCards[0].classList.remove('flipped')
       flippedCards[1].classList.remove('flipped')
@@ -198,29 +179,41 @@ function showWinModal () {
   stopTimer() // Stop the timer
 }
 
-function saveToCSV(firstName, email) {
-    const csvContent = `"${firstName}","${email}"\n`;
+// Reference to the form elements
+const firstNameInput = document.getElementById('firstName');
+const emailInput = document.getElementById('email');
+const privacyPolicyCheckbox = document.getElementById('privacyPolicy');
+const sendDataButton = document.getElementById('sendData');
 
-    // Check if the CSV file exists
-    fetch('data.csv')
-    .then(response => {
-        if(response.status === 404) {
-            // If the file doesn't exist, create it
-            return fetch('data.csv', {
-                method: 'POST',
-                body: 'First Name,Email\n' + csvContent
-            });
+// Enable or disable the Send button based on the checkbox
+privacyPolicyCheckbox.addEventListener('change', function() {
+    sendDataButton.disabled = !this.checked;
+});
+
+// Send data to Cloudflare Worker when the Send button is clicked
+sendDataButton.addEventListener('click', async function() {
+    const data = {
+        firstName: firstNameInput.value,
+        email: emailInput.value
+    };
+
+    try {
+        const response = await fetch('https://flipcardgame.derrickmal123.workers.dev/', {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        const result = await response.json();
+        if (result.success) {
+            alert('Data sent successfully!');
         } else {
-            // If the file exists, append the new data
-            return response.text().then(data => {
-                return fetch('data.csv', {
-                    method: 'PUT',
-                    body: data + csvContent
-                });
-            });
+            alert('Failed to send data. Please try again.');
         }
-    })
-    .catch(error => {
-        console.error('Error saving to CSV:', error);
-    });
-}
+    } catch (error) {
+        console.error('Error sending data:', error);
+        alert('An error occurred. Please try again.');
+    }
+});
