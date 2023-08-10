@@ -194,6 +194,28 @@ button:hover {
     margin-top: 10px;
 }
 
+/* Style for the Privacy Policy link */
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Style for the disabled Send button */
+.disabled-button {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Style for the enabled Send button (when checkbox is checked) */
+.disabled-button:enabled {
+    opacity: 1;
+    cursor: pointer;
+}
+
 /* ... Thank you Modal ... Header Image .. */
 #thankYouModal {
     width: 70vw;  /* 70% of the viewport width */

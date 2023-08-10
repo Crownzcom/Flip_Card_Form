@@ -187,7 +187,12 @@ const sendDataButton = document.getElementById('sendData');
 
 // Enable or disable the Send button based on the checkbox
 privacyPolicyCheckbox.addEventListener('change', function() {
-    sendDataButton.disabled = !this.checked;
+  sendDataButton.disabled = !this.checked;
+  if (this.checked) {
+      sendDataButton.classList.remove('disabled-button');
+  } else {
+      sendDataButton.classList.add('disabled-button');
+  }
 });
 
 // Send data to Cloudflare Worker when the Send button is clicked
