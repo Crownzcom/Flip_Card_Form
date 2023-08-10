@@ -194,7 +194,28 @@ button:hover {
     margin-top: 10px;
 }
 
-/* ... Header Image .. */
+/* ... Thank you Modal ... Header Image .. */
+#thankYouModal {
+    width: 70vw;  /* 70% of the viewport width */
+    height: 70vh; /* 70% of the viewport height */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    overflow: auto; /* To ensure content inside the modal is scrollable if it overflows */
+    /* ... other styles like background-color, padding, etc. ... */
+}
+#thanyouContent {
+    width: 60vw;  /* 70% of the viewport width */
+    height: 60vh; /* 70% of the viewport height */
+    position: fixed;
+    top: 40%;
+    left: 40%;
+    transform: translate(-40%, -40%);
+    overflow: auto; /* To ensure content inside the modal is scrollable if it overflows */
+    /* ... other styles like background-color, padding, etc. ... */
+}
+
 .header-image {
     width: 100%; /* or any other preferred width */
     max-height: 150px; /* or any other preferred height */
