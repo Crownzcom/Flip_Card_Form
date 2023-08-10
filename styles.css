@@ -1,17 +1,19 @@
+/* === GLOBAL STYLES === */
 body {
     margin: 0;
-    padding: 20px 0; /* Add padding to the top and bottom */
+    padding: 20px 0; 
     height: 100vh;
     display: flex;
     justify-content: center;
     background-color: #f0f0f0;
-    overflow: auto; /* Allow scrolling if content overflows */
+    overflow: auto; 
 }
 
+/* === GAME CONTAINER === */
 .game-container {
     position: relative;
-    top: 50%; /* Move the top edge to the center of the viewport */
-    transform: translateY(-50%); /* Shift it up by half its height */
+    top: 50%; 
+    transform: translateY(-50%); 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -19,25 +21,23 @@ body {
     max-width: 100%;
 }
 
+/* === GAME BOARD === */
 .game-board {
-    /* display: flex; */
     display: grid;
-    flex-wrap: wrap;
     width: fit-content;
-    gap: 10px; /* Adjusted gap */
+    gap: 10px; 
     justify-content: center;
-    grid-template-columns: repeat(3, 1fr); /* Ensure a minimum of 3 columns */
+    grid-template-columns: repeat(3, 1fr); 
 }
 
+/* === CARDS === */
 .card {
     box-sizing: border-box;
-    /*flex: 0 0 calc(20% - 10px); /* 5 cards per row by default for larger screens */
     height: 150px;
     width: 150px;
-    margin: 5px; /* Adjusted margin */
+    margin: 5px; 
     perspective: 1000px;
     cursor: pointer;
-    /*aspect-ratio: 1; /* Ensures the card remains square */
 }
 
 .card-back, .card-front {
@@ -50,7 +50,7 @@ body {
     justify-content: center;
     border: 1px solid black;
     border-radius: 5px;
-    transition: transform 1s;  /* Adjust the duration as needed */
+    transition: transform 1s;  
 }
 
 .card-back {
@@ -75,6 +75,7 @@ body {
     transform: rotateY(180deg);
 }
 
+/* === GAME INFO === */
 .game-info {
     display: flex;
     justify-content: center;
@@ -98,6 +99,7 @@ body {
     padding: 5px 15px;
 }
 
+/* === MODALS === */
 .modal {
     display: none;
     position: fixed; 
@@ -115,29 +117,27 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     padding: 20px;
-    /* background-color: #fff; */
     text-align: center;
-    background-color: #f9f9f9;  /* Soft background color */
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);  /* Slight shadow for depth */
-    border-radius: 8px;  /* Rounded corners */
-    padding: 20px;  /* Inner spacing */
+    background-color: #f9f9f9;  
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);  
+    border-radius: 8px;  
+    padding: 20px;  
 }
 
 .modal-content h2 {
-    color: #333;  /* Darker color for headings */
+    color: #333;  
     font-weight:600;
-    font-size: 24px;  /* Adjust size if necessary */
-    margin-bottom: 15px;  /* Space between heading and content */
+    font-size: 24px;  
+    margin-bottom: 15px;  
 }
 
 .modal-content p {
-    color: #888;  /* Lighter gray for paragraph text */
+    color: #888;  
     font-family: Roboto, sans-serif;
     font-weight:500;
     font-size: 18px;
     font-stretch: 100%;
-    line-height: 1.5;  /* Spacing between lines for better readability */
-
+    line-height: 1.5;  
 }
 
 .modal-buttons {
@@ -164,20 +164,7 @@ button:hover {
     background-color: #ff407d;
 }
 
-/* Define grid layouts based on classes */
-.game-board.layout-4 {
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.game-board.layout-6 {
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.game-board.layout-12 {
-    grid-template-columns: repeat(4, 1fr);
-}
-
-/* ... Contact Form ... */
+/* === CONTACT FORM === */
 #contactForm {
     width: 100%;
     display: flex;
@@ -207,7 +194,6 @@ button:hover {
     margin-top: 10px;
 }
 
-/* Style for the Privacy Policy link */
 a {
     color: #007BFF;
     text-decoration: none;
@@ -217,64 +203,92 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Style for the disabled Send button */
 .disabled-button {
     opacity: 0.5;
     cursor: not-allowed;
 }
 
-/* Style for the enabled Send button (when checkbox is checked) */
 .disabled-button:enabled {
     opacity: 1;
     cursor: pointer;
 }
 
-/* ... Thank you Modal ... Header Image .. */
 #thankYouModal {
-    width: 70vw;  /* 70% of the viewport width */
-    height: 70vh; /* 70% of the viewport height */
+    width: 70vw;  
+    height: 70vh; 
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    overflow: auto; /* To ensure content inside the modal is scrollable if it overflows */
-    /* ... other styles like background-color, padding, etc. ... */
+    overflow: auto; 
 }
+
 #thanyouContent {
-    width: 60vw;  /* 70% of the viewport width */
-    height: 60vh; /* 70% of the viewport height */
+    width: 60vw;  
+    height: 60vh; 
     position: fixed;
     top: 40%;
     left: 40%;
     transform: translate(-40%, -40%);
-    overflow: auto; /* To ensure content inside the modal is scrollable if it overflows */
-    /* ... other styles like background-color, padding, etc. ... */
+    overflow: auto; 
 }
 
 .header-image {
-    width: 100%; /* or any other preferred width */
-    max-height: 150px; /* or any other preferred height */
-    object-fit: cover; /* to maintain the aspect ratio */
-    margin-bottom: 20px; /* spacing between the image and the next element */
+    width: 100%; 
+    max-height: 150px; 
+    object-fit: cover; 
+    margin-bottom: 20px; 
 }
 
-/* Styling for the labels */
 .modal-content label {
-    display: block;  /* Makes the label take the full width, pushing content below it */
-    text-align: left;  /* Aligns the text to the left */
-    padding-bottom: 8px;  /* Space below the label */
-    line-height: 19.88px;  /* Adjusts the spacing between lines */
-    font-weight: 400;  /* Normal font weight */
-    font-size: 14px;  /* Adjusts the font size */
+    display: block;  
+    text-align: left;  
+    padding-bottom: 8px;  
+    line-height: 19.88px;  
+    font-weight: 400;  
+    font-size: 14px;  
 }
 
-/* Styling for the input fields */
+#privacyPolicy + label {
+    text-align: center;
+}
+
+#privacyPolicy {
+    appearance: none; 
+    background-color: #f0f0f0; 
+    border: 1px solid rgb(60, 60, 60); 
+    width: 20px; 
+    height: 20px; 
+    cursor: pointer; 
+    position: relative; 
+}
+
+#privacyPolicy:checked {
+    background-color: #f0f0f0; 
+}
+
+#privacyPolicy:checked::after {
+    content: '✓'; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px; 
+}
+
 .modal-content input[type="text"], 
 .modal-content input[type="email"] {
-    /* ... existing styles ... */
-    border-color: rgb(60, 60, 60);  /* Adjusts the border color */
+    border-color: rgb(60, 60, 60);  
 }
-/* ... KeyFrames ... */
+
+.modal-content .checkbox-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 10px; 
+}
+
+/* === KEYFRAMES === */
 @keyframes pulsate {
     0% {
         transform: scale(1);
@@ -289,22 +303,23 @@ a:hover {
         opacity: 0.9;
     }
 }
-/* ... Media Queries ... */
+
+/* === MEDIA QUERIES === */
 @media (min-width: 601px) {
     .game-board {
-        grid-template-columns: repeat(4, 1fr); /* 4 columns for medium screens */
+        grid-template-columns: repeat(4, 1fr); 
     }
 }
 
 @media (min-width: 801px) {
     .game-board {
-        grid-template-columns: repeat(5, 1fr); /* 5 columns for larger screens */
+        grid-template-columns: repeat(5, 1fr); 
     }
 }
 
 @media (max-width: 700px) {
     .card {
-        width: 100px; /* Assuming a gap of 10px between cards */
+        width: 100px; 
         height: 100px;
     }
 }
@@ -312,7 +327,6 @@ a:hover {
 @media (max-width: 400px) {
     .card {
         width: 100px;
-        height: 100px
-        /* You might need to adjust other styles here, like reducing font sizes or image sizes */
+        height: 100px;
     }
 }
