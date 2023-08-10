@@ -187,6 +187,7 @@ button:hover {
     display: flex;
     align-items: center;
     gap: 5px;
+    flex-direction: row; /* Ensure it's row */
 }
 
 #sendButton {
@@ -250,7 +251,8 @@ a:hover {
 }
 
 #privacyPolicy + label {
-    text-align: center;
+    display: inline;
+    text-align: left;
 }
 
 #privacyPolicy {
