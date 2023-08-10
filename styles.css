@@ -187,7 +187,6 @@ button:hover {
 
 #contactForm label {
     font-weight: bold;
-    text-align: left;
 }
 
 #contactForm input[type="text"], #contactForm input[type="email"] {
@@ -259,6 +258,22 @@ a:hover {
     margin-bottom: 20px; /* spacing between the image and the next element */
 }
 
+/* Styling for the labels */
+.modal-content label {
+    display: block;  /* Makes the label take the full width, pushing content below it */
+    text-align: left;  /* Aligns the text to the left */
+    padding-bottom: 8px;  /* Space below the label */
+    line-height: 19.88px;  /* Adjusts the spacing between lines */
+    font-weight: 400;  /* Normal font weight */
+    font-size: 14px;  /* Adjusts the font size */
+}
+
+/* Styling for the input fields */
+.modal-content input[type="text"], 
+.modal-content input[type="email"] {
+    /* ... existing styles ... */
+    border-color: rgb(60, 60, 60);  /* Adjusts the border color */
+}
 /* ... KeyFrames ... */
 @keyframes pulsate {
     0% {
