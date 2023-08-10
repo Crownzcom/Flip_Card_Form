@@ -309,7 +309,7 @@ a:hover {
 }
 
 /* Error styling for the input field */
-.input-error {
+.modal-content input[type="email"].input-error {
     border-color: red;
     animation: shake 0.5s;
 }
