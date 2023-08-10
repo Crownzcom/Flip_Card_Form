@@ -253,14 +253,15 @@ a:hover {
 #privacyPolicy + label {
     display: inline;
     text-align: left;
+    vertical-align: middle;
 }
 
 #privacyPolicy {
     appearance: none; 
     background-color: #f0f0f0; 
     border: 1px solid rgb(60, 60, 60); 
-    width: 20px; 
-    height: 20px; 
+    width: 10px; 
+    height: 10px; 
     cursor: pointer; 
     position: relative; 
 }
@@ -276,6 +277,12 @@ a:hover {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 16px; 
+}
+
+#privacyPolicy, 
+#privacyPolicy + label {
+    margin: 0;
+    padding: 0;
 }
 
 .modal-content input[type="text"], 
