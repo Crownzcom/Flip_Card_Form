@@ -194,6 +194,14 @@ button:hover {
     margin-top: 10px;
 }
 
+/* ... Header Image .. */
+.header-image {
+    width: 100%; /* or any other preferred width */
+    max-height: 150px; /* or any other preferred height */
+    object-fit: cover; /* to maintain the aspect ratio */
+    margin-bottom: 20px; /* spacing between the image and the next element */
+}
+
 /* ... KeyFrames ... */
 @keyframes pulsate {
     0% {

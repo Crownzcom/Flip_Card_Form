@@ -213,7 +213,13 @@ sendDataButton.addEventListener('click', async function() {
       const result = await response.json();
 
       if (result.result === "success") {
-        alert('Data sent successfully!');
+        // alert('Data sent successfully!');
+        
+        // Hide the winModal
+        document.getElementById('winModal').style.display = 'none';
+        
+        // Show the thankYouModal
+        document.getElementById('thankYouModal').style.display = 'block';
     } else {
         alert('Failed to send data. Please try again.');
     }
@@ -222,5 +228,18 @@ sendDataButton.addEventListener('click', async function() {
       console.error('Error sending data:', error);
       alert(`An error occurred: ${error.message}`);
   }
+});
+
+// An event listener to the "Restart" button to restart the game
+document.getElementById('restartGame').addEventListener('click', function() {
+  // Hide the thankYouModal
+  document.getElementById('thankYouModal').style.display = 'none';
+  
+  // Reset game state (you can call the same function that the "Play Again" button calls)
+  matchedPairs = 0;
+  cards.forEach(card => card.classList.remove('flipped'));
+  shuffleCards();
+  startTimer();
+  document.getElementById('replay').classList.add('hidden'); // Hide the "Play Again" button
 });
 
