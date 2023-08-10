@@ -195,8 +195,21 @@ privacyPolicyCheckbox.addEventListener('change', function () {
   }
 })
 
+function isValidEmail(email) {
+  // Regular expression to validate email format
+  const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  return regex.test(email);
+}
+
 // Send data to Cloudflare Worker when the Send button is clicked
 sendDataButton.addEventListener('click', async function () {
+  const email = emailInput.value;
+
+    if (!isValidEmail(email)) {
+        alert('Please enter a valid email address.');
+        return;
+    }
+    
   const data = {
     Name: firstNameInput.value,
     Email: emailInput.value
