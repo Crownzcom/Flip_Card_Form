@@ -82,12 +82,12 @@ function shuffleCards () {
   cardsArray.forEach(card => gameBoard.appendChild(card))
 }
 
-function adjustLayout() {
-  cards = document.querySelectorAll('.card');
-  totalCards = cards.length;
-  let columns = Math.max(3, Math.ceil(Math.sqrt(totalCards))); // Ensure a minimum of 3 columns
-  let gameBoard = document.querySelector('.game-board');
-  gameBoard.style.gridTemplateColumns = `repeat(${columns}, 1fr)`;
+function adjustLayout () {
+  cards = document.querySelectorAll('.card')
+  totalCards = cards.length
+  let columns = Math.max(3, Math.ceil(Math.sqrt(totalCards))) // Ensure a minimum of 3 columns
+  let gameBoard = document.querySelector('.game-board')
+  gameBoard.style.gridTemplateColumns = `repeat(${columns}, 1fr)`
 }
 
 function attachCardListeners () {
@@ -180,70 +180,80 @@ function showWinModal () {
 }
 
 // Reference to the form elements
-const firstNameInput = document.getElementById('firstName');
-const emailInput = document.getElementById('email');
-const privacyPolicyCheckbox = document.getElementById('privacyPolicy');
-const sendDataButton = document.getElementById('sendData');
+const firstNameInput = document.getElementById('firstName')
+const emailInput = document.getElementById('email')
+const privacyPolicyCheckbox = document.getElementById('privacyPolicy')
+const sendDataButton = document.getElementById('sendData')
 
 // Enable or disable the Send button based on the checkbox
-privacyPolicyCheckbox.addEventListener('change', function() {
-  sendDataButton.disabled = !this.checked;
+privacyPolicyCheckbox.addEventListener('change', function () {
+  sendDataButton.disabled = !this.checked
   if (this.checked) {
-      sendDataButton.classList.remove('disabled-button');
+    sendDataButton.classList.remove('disabled-button')
   } else {
-      sendDataButton.classList.add('disabled-button');
+    sendDataButton.classList.add('disabled-button')
   }
-});
+})
 
 // Send data to Cloudflare Worker when the Send button is clicked
-sendDataButton.addEventListener('click', async function() {
+sendDataButton.addEventListener('click', async function () {
   const data = {
     Name: firstNameInput.value,
     Email: emailInput.value
-  };
+  }
 
   try {
-      const response = await fetch('https://flipcardgame.derrickmal123.workers.dev/', {
-          method: 'POST',
-          body: JSON.stringify(data),
-          headers: {
-              'Content-Type': 'application/json'
-          }
-      });
-
-      if (!response.ok) {
-          throw new Error(`Server responded with ${response.status}: ${response.statusText}`);
+    const response = await fetch(
+      'https://flipcardgame.derrickmal123.workers.dev/',
+      {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Content-Type': 'application/json'
+        }
       }
+    )
 
-      const result = await response.json();
-
-      if (result.result === "success") {
-        // alert('Data sent successfully!');
-        
-        // Hide the winModal
-        document.getElementById('winModal').style.display = 'none';
-        
-        // Show the thankYouModal
-        document.getElementById('thankYouModal').style.display = 'block';
-    } else {
-        alert('Failed to send data. Please try again.');
+    if (!response.ok) {
+      throw new Error(
+        `Server responded with ${response.status}: ${response.statusText}`
+      )
     }
-    
+
+    const result = await response.json()
+
+    if (result.result === 'success') {
+      // alert('Data sent successfully!');
+
+      // Hide the game-container
+      document.querySelector('.game-container').style.display = 'none' // <-- Add this line
+
+      // Hide the winModal
+      document.getElementById('winModal').style.display = 'none'
+
+      // Show the thankYouModal
+      document.getElementById('thankYouModal').style.display = 'block'
+    } else {
+      alert('Failed to send data. Please try again.')
+    }
   } catch (error) {
-      console.error('Error sending data:', error);
-      alert(`An error occurred: ${error.message}`);
+    console.error('Error sending data:', error)
+    alert(`An error occurred: ${error.message}`)
   }
-});
+})
 
 // An event listener to the "Restart" button to restart the game
-document.getElementById('restartGame').addEventListener('click', function() {
+document.getElementById('restartGame').addEventListener('click', function () {
   // Hide the thankYouModal
-  document.getElementById('thankYouModal').style.display = 'none';
-  
+  document.getElementById('thankYouModal').style.display = 'none'
+
+  // Show the game-container
+  document.querySelector('.game-container').style.display = 'flex'; // <-- Add this line
+ 
   // Reset game state (you can call the same function that the "Play Again" button calls)
-  matchedPairs = 0;
-  cards.forEach(card => card.classList.remove('flipped'));
-  shuffleCards();
-  startTimer();
-  document.getElementById('replay').classList.add('hidden'); // Hide the "Play Again" button
-});
+  matchedPairs = 0
+  cards.forEach(card => card.classList.remove('flipped'))
+  shuffleCards()
+  startTimer()
+  document.getElementById('replay').classList.add('hidden') // Hide the "Play Again" button
+})
