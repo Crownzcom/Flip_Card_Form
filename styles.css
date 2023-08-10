@@ -288,7 +288,13 @@ a:hover {
 
 .modal-content input[type="text"], 
 .modal-content input[type="email"] {
-    border-color: rgb(60, 60, 60);  
+    border: 1px solid lightgrey; 
+    padding: 5px; 
+    margin-bottom: 10px;
+    border-color: rgb(88, 94, 97); 
+    height: 44px;
+    width: 100%; 
+    border-radius: 5px;
 }
 
 .modal-content .checkbox-container {
@@ -329,14 +335,14 @@ a:hover {
 
 @media (max-width: 700px) {
     .card {
-        width: 100px; 
-        height: 100px;
+        width: 80px; 
+        height: 80px;
     }
 }
 
 @media (max-width: 400px) {
     .card {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
     }
 }
