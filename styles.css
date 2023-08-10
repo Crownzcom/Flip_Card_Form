@@ -260,24 +260,24 @@ a:hover {
     appearance: none; 
     background-color: #f0f0f0; 
     border: 1px solid rgb(60, 60, 60); 
-    width: 10px; 
-    height: 10px; 
+    width: 15px; 
+    height: 15px; 
     cursor: pointer; 
     position: relative; 
 }
 
 #privacyPolicy:checked {
-    /* background-color: #f0f0f0; */
     background-color: #007BFF;
 }
 
 #privacyPolicy:checked::after {
-    content: '✓'; 
+    content: '✓'; /* Unicode checkmark */
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 16px; 
+    font-size: 16px; /* Adjust as needed */
+    color: #ffffff; /* White color for the checkmark */
 }
 
 #privacyPolicy, 
