@@ -308,6 +308,12 @@ a:hover {
     gap: 10px; 
 }
 
+/* Error styling for the input field */
+.input-error {
+    border-color: red;
+    animation: shake 0.5s;
+}
+
 /* === KEYFRAMES === */
 @keyframes pulsate {
     0% {
@@ -322,6 +328,15 @@ a:hover {
         transform: scale(1);
         opacity: 0.9;
     }
+}
+
+/* Shake animation */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
 }
 
 /* === MEDIA QUERIES === */

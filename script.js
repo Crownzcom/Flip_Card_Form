@@ -205,11 +205,14 @@ function isValidEmail(email) {
 sendDataButton.addEventListener('click', async function () {
   const email = emailInput.value;
 
-    if (!isValidEmail(email)) {
-        alert('Please enter a valid email address.');
-        return;
-    }
-    
+  if (!isValidEmail(email)) {
+    emailInput.classList.add('input-error');
+    emailInput.addEventListener('input', function() {
+        emailInput.classList.remove('input-error');
+    });
+    return;
+}
+
   const data = {
     Name: firstNameInput.value,
     Email: emailInput.value
