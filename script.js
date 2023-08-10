@@ -242,4 +242,3 @@ document.getElementById('restartGame').addEventListener('click', function() {
   startTimer();
   document.getElementById('replay').classList.add('hidden'); // Hide the "Play Again" button
 });
-
