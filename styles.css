@@ -267,7 +267,8 @@ a:hover {
 }
 
 #privacyPolicy:checked {
-    background-color: #f0f0f0; 
+    /* background-color: #f0f0f0; */
+    background-color: #007BFF;
 }
 
 #privacyPolicy:checked::after {
