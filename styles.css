@@ -126,7 +126,7 @@ body {
 
 .modal-content h2 {
     color: #333;  
-    font-weight:600;
+    font-weight:500;
     font-size: 24px;  
     margin-bottom: 15px;  
 }
@@ -289,6 +289,7 @@ a:hover {
 .modal-content input[type="text"], 
 .modal-content input[type="email"] {
     border: 1px solid lightgrey; 
+    border-width: 1px;
     padding: 5px; 
     margin-bottom: 10px;
     border-color: rgb(88, 94, 97); 
@@ -335,12 +336,12 @@ a:hover {
 
 @media (max-width: 700px) {
     .card {
-        width: 80px; 
-        height: 80px;
+        width: 85px; 
+        height: 85px;
     }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 500px) {
     .card {
         width: 80px;
         height: 80px;
