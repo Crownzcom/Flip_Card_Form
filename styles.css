@@ -1,30 +1,47 @@
 /* === GLOBAL STYLES === */
 body {
     margin: 0;
-    padding: 20px 0; 
+    /* padding: 20px 0;  */
     height: 100vh;
     display: flex;
     justify-content: center;
     background-color: #f0f0f0;
     overflow: auto;
     font-family: Roboto, sans-serif;
+
+        /* ... */
+        padding: 0; 
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
 }
 
 /* === GAME CONTAINER === */
 .game-container {
-    position: relative;
+    /* position: relative;
     top: 50%; 
     transform: translateY(-50%); 
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: -moz-fit-content;
     width: fit-content;
-    max-width: 100%;
+    max-width: 100%; */
+
+     /* ... */
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     width: -moz-fit-content;
+     width: fit-content;
+     max-width: 100%;
 }
 
 /* === GAME BOARD === */
 .game-board {
     display: grid;
+    width: -moz-fit-content;
     width: fit-content;
     gap: 10px; 
     justify-content: center;
@@ -74,30 +91,6 @@ body {
 
 .card.flipped .card-back {
     transform: rotateY(180deg);
-}
-
-/* === GAME INFO === */
-.game-info {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-#timer {
-    font-size: 1.5em;
-    background-color: #fff;
-    padding: 10px 20px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.hidden {
-    display: none;
-}
-
-#replay {
-    margin-left: 20px;
-    padding: 5px 15px;
 }
 
 /* === MODALS === */

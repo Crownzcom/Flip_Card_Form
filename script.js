@@ -17,8 +17,6 @@ let totalCards;
 let cards;
 let flippedCards = [];
 let matchedPairs = 0;
-let startTime;
-let timerInterval;
 
 // ==========================
 // EVENT LISTENERS
@@ -51,7 +49,6 @@ function showIntroModal() {
   const startGame = document.getElementById('startGame');
   startGame.onclick = function () {
     modal.style.display = 'none';
-    startTimer();
   };
 }
 
@@ -165,30 +162,10 @@ function handleMismatch() {
   }, 1000);
 }
 
-// Start the game timer
-function startTimer() {
-  startTime = Date.now();
-  timerInterval = setInterval(updateTimer, 1000);
-}
-
-// Update the timer display
-function updateTimer() {
-  const elapsed = Date.now() - startTime;
-  const minutes = Math.floor(elapsed / 60000);
-  const seconds = Math.floor((elapsed % 60000) / 1000);
-  document.getElementById('timer').textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-}
-
-// Stop the game timer
-function stopTimer() {
-  clearInterval(timerInterval);
-}
-
 // Display the win modal
 function showWinModal() {
   const modal = document.getElementById('winModal');
   modal.style.display = 'block';
-  stopTimer();
 }
 
 // Reset the game state
@@ -196,7 +173,6 @@ function resetGameState() {
   matchedPairs = 0;
   cards.forEach(card => card.classList.remove('flipped'));
   shuffleCards();
-  startTimer();
   document.getElementById('replay').classList.add('hidden');
 }
 
