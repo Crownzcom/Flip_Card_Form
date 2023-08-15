@@ -29,12 +29,6 @@ document.addEventListener('DOMContentLoaded', function () {
   shuffleCards();
   adjustLayout();
   attachCardListeners();
-
-  // Replay button functionality
-  const replayButton = document.getElementById('replay');
-  replayButton.onclick = function () {
-    resetGameState();
-  };
 });
 
 // ==========================
