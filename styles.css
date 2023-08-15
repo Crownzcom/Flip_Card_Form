@@ -193,8 +193,6 @@ a:hover {
 }
 
 #thankYouModal {
-    /* width: 80vw;   */
-    /* height: 80vh;  */
     position: fixed;
     top: 60%;
     left: 60%;
@@ -213,8 +211,9 @@ a:hover {
 }
 
 .header-image {
-    width: 100%; 
-    max-height: 300px; 
+    max-width: 60%; 
+    /* max-height: 300px; */
+    max-height: 60%;  
     object-fit: cover;
     margin-bottom: 20px;
     background-size: cover;
