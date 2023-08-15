@@ -213,7 +213,7 @@ sendDataButton.addEventListener('click', async function () {
 
   try {
     const response = await fetch(
-      'https://flipcardgame.derrickmal123.workers.dev/',
+      'https://flipcard-form.crownzcom.workers.dev/',
       {
         method: 'POST',
         body: JSON.stringify(data),
