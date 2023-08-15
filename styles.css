@@ -293,11 +293,11 @@ a:hover {
 }
 
 .loading-spinner {
-    border: 8px solid #ffffff;
+    border: 8px solid #e49999;
     border-top: 8px solid #3498db;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     animation: spin 1s linear infinite;
     margin: 10px auto;
     z-index: 10; /* Add this line */
