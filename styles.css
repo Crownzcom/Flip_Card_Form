@@ -36,8 +36,8 @@ body {
 /* === CARDS === */
 .card {
     box-sizing: border-box;
-    height: 100px;
-    width: 100px;
+    height: 150px;
+    width: 150px;
     margin: 2px; 
     perspective: 1000px;
     cursor: pointer;

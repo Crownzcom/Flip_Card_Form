@@ -235,7 +235,7 @@ sendDataButton.addEventListener('click', async function () {
 
     const result = await response.json()
 
-    if (result.result === 'success') {
+    if (result.result === 'Success') {
       // Hide the loading spinner.
       spinner.style.display = 'none'
 
