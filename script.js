@@ -207,6 +207,7 @@ sendDataButton.addEventListener('click', async function () {
   modal.querySelector('.modal-content').prepend(spinner)
 
   const data = {
+    type: 'saveDetails',
     Name: firstNameInput.value,
     Email: emailInput.value
   }
