@@ -126,7 +126,7 @@ body {
     margin-top: 20px;
 }
 #modalWelcome{
-    position: absolute;
+    /* position: absolute;
     max-width: 80%;
     top: 50%;
     left: 50%;
@@ -134,11 +134,35 @@ body {
     padding: 10px;
     background-color: #f9f9f9;
     border-radius: 8px;  
-    padding: 10px; 
+    padding: 10px;  */
+    display: flex;           /* Add this line */
+    flex-direction: column;  /* Add this line */
+    justify-content: center; /* Add this line */
+    align-items: center;     /* Add this line */
+    /* ... */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    text-align: center;
+    background-color: #ffffff;  
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);  
+    border-radius: 8px;  
+    padding: 15px 20px;
+    /* ... */
+    width: 30%;  /* Increased width */
+    max-width: 90%;  /* Set a maximum width */
+    height: auto;  /* Let the height adjust based on content */
+    max-height: -moz-fit-content;
+    max-height: fit-content; /* Let the height adjust based on content */
+    overflow-y: auto;  /* Allow scrolling within the modal if content exceeds max-height*/
 }
 #modalWelcome p{
     color: #000000;
     font-weight:500;
+    padding-left: 0.8%;
+    padding-right: 0.8%;
 }
 
 button {
@@ -154,7 +178,9 @@ button {
 }
 
 #startGame { 
-    padding: 3.5% 12%; 
+    padding: 15px 40px;
+    animation: pulsate 2s infinite;
+    background-color: #ff407d;
 }
 
 button:hover {
