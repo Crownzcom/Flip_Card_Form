@@ -36,8 +36,8 @@ body {
 /* === CARDS === */
 .card {
     box-sizing: border-box;
-    height: 150px;
-    width: 150px;
+    height: 160px;
+    width: 160px;
     margin: 2px; 
     perspective: 1000px;
     cursor: pointer;
@@ -345,14 +345,35 @@ a:hover {
     }
 }
 
-@media (max-width: 700px) {
+/* @media (max-width: 700px) {
     .card {
-        width: 85px; 
-        height: 85px;
+        width: 100px; 
+        height: 100px;
+    }
+} */
+
+@media (max-width: 650px) {
+    .card {
+        width: 130px;
+        height: 130px;
+    }
+}
+
+@media (max-width: 549px) {
+    .card {
+        width: 110px;
+        height: 110px;
     }
 }
 
 @media (max-width: 500px) {
+    .card {
+        width: 95px;
+        height: 95px;
+    }
+}
+
+@media (max-width: 400px) {
     .card {
         width: 80px;
         height: 80px;
