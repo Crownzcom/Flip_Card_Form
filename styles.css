@@ -23,9 +23,9 @@ body {
 
 /* === GAME BOARD === */
 .game-board {
-    width: 95vw; /* Adjusted to maintain card squareness */
+    width: 97vw; /* Adjusted to maintain card squareness */
     max-width: 720px;
-    height: 71.25vw; /* 3/4 of the width for a 3x4 board */
+    height: 72.75vw; /* 3/4 of the width for a 3x4 board */
     max-height: 550px; /* 3/4 of the max-width */
     min-height: 100px;
     display: grid;
@@ -142,14 +142,14 @@ body {
 
 #modalWelcome {
     width: 80vw;
-    max-width: 600px;
+    max-width: 500px;  /* Added a max-width for better control */
     height: auto;
     max-height: 80vh;
     overflow: auto;
     background-color: #ffffff;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     border-radius: 8px;
-    padding: 15px 20px;
+    padding: 5px 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -159,13 +159,13 @@ body {
 
 #modalWelcome p{
     color: #000000;
-    font-weight:500;
-    padding-left: 0.8%;
-    padding-right: 0.8%;
+    font-weight: 500;
+    padding: 0.8%;
+    margin: 0;  /* To remove any default margin */
 }
 
 button {
-    font-weight:500;
+    font-weight: 500;
     padding: 15px 30px;
     margin: 5px;
     border: none;
@@ -191,7 +191,8 @@ button:hover {
     background-color: #ff407d;
 }
 
-/* === Win Modal and CONTACT FORM === */
+
+/* Win Modal and CONTACT FORM */
 #winModal {
     background-color: rgba(0, 0, 0, 0.7);
     position: fixed;
@@ -205,72 +206,27 @@ button:hover {
     z-index: 1000;  /* Ensure it's above other content */
 }
 
-#winModalContent{
-    /* width: 75vw;
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 10px;
+#winModalContent {
+    width: 80vw;
+    max-width: 600px;
+    height: auto;
+    max-height: 80vh;
+    overflow: auto;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    padding: 2vw;
+}
+
+#winModalContent h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
     text-align: center;
-    background-color: #f9f9f9;  
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);  
-    border-radius: 8px;  
-    padding: 10px;   */
-    
-        width: 80vw;
-        max-width: 600px;
-        height: auto;
-        max-height: 80vh;
-        overflow: auto;
-        background-color: #f9f9f9;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        border-radius: 8px;
-        padding: 15px 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
 }
 
-
-#winModalContent label {
-    text-align: left;
+#winModalContent p {
+    font-size: clamp(0.8rem, 2.5vw, 1.2rem);
+    text-align: center;
 }
-
-
-.checkbox-container {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    flex-direction: row;
-}
-
-#sendButton {
-    align-self: center;
-    margin-top: 20px;
-}
-
-a {
-    color: #007BFF;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-.disabled-button {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.disabled-button:enabled {
-    opacity: 1;
-    cursor: pointer;
-}
-
 
 #winModalContent label {
     display: block;  
@@ -278,70 +234,36 @@ a:hover {
     padding-bottom: 8px;  
     line-height: 19.88px;  
     font-weight: 400;  
-    font-size: 14px;  
+    font-size: clamp(0.8rem, 2.5vw, 1.2rem);  
 }
 
 #winModalContent input[type="text"], 
 #winModalContent input[type="email"] {
+    width: 100%;
     border: 1px solid rgb(51, 51, 51); 
     border-width: 0.5px;
     padding: 5px; 
     margin-bottom: 10px;
     border-color: rgb(90, 90, 90); 
     border-radius: 5px;
+    font-size: clamp(0.8rem, 2vw, 1rem);
 }
 
-#winModalContent .checkbox-container {
+.checkbox-container {
     display: flex;
     align-items: center;
-    justify-content: center; 
-    gap: 10px; 
+    gap: 1vw;
+    flex-direction: row;
+    justify-content: center;
 }
 
-/* Error styling for the input field */
-#winModalContent input[type="email"].input-error {
-    border-color: red;
-    animation: shake 0.5s;
+#sendData {
+    align-self: center;
+    margin-top: 20px;
+    font-size: clamp(0.8rem, 2vw, 1rem);
 }
 
-#privacyPolicy + label {
-    display: inline;
-    text-align: left;
-    vertical-align: middle;
-}
-
-#privacyPolicy {
-    appearance: none; 
-    background-color: #f0f0f0; 
-    border: 1px solid rgb(60, 60, 60); 
-    width: 15px; 
-    height: 15px; 
-    cursor: pointer; 
-    position: relative; 
-}
-
-#privacyPolicy:checked {
-    background-color: #007BFF;
-}
-
-#privacyPolicy:checked::after {
-    content: '✓'; /* Unicode checkmark */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 16px; /* Adjust as needed */
-    color: #ffffff; /* White color for the checkmark */
-}
-
-#privacyPolicy, 
-#privacyPolicy + label {
-    margin: 0;
-    padding: 0;
-}
-
-
-/* === Thank You Modal === */
+/* Thank You Modal */
 #thankYouModal {
     background-color: rgba(0, 0, 0, 0.7);
     position: fixed;
@@ -355,10 +277,10 @@ a:hover {
 }
 
 #thankYouContent {
-    width: 80vw;
-    /* max-width: 600px; */
+    width: 50vw;
     height: auto;
-    max-height: 80vh;
+    height: 80vh;
+    max-height: 100vh;
     overflow: auto;
     background-color: #ffffff;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -372,9 +294,11 @@ a:hover {
 }
 
 .header-image {
-    width: 100%;
-    height: 100%;
-    /* max-height: 70%;   */
+    min-width: 50%;
+    min-height: 50%;
+    max-width: 100%;
+    max-height: 70%;
+    margin: 0 auto; /* This centers the image in its container */
     object-fit: cover;
     margin-bottom: 6px;
     background-size: cover;
@@ -382,7 +306,6 @@ a:hover {
     background-repeat: no-repeat;
 }
 
-/* Spinner */
 .loading-spinner {
     border: 8px solid #3498db;
     border-top: 8px solid #ff407d;
@@ -472,22 +395,74 @@ a:hover {
     .header-image {
         max-height: 200px;
     }
+
+    .modal-content, #winModalContent, #thankYouContent{
+        width: 100%;
+        height: 100%;
+    }
+
+    #modalWelcome{
+        width: 80%;
+        height: 45%
+    }
+}
+
+@media (max-width: 600px) {
+    .game-board {
+        width: 98vw; /* Adjusted to maintain card squareness */
+        max-width: 720px;
+        height: 73.5vw; /* 3/4 of the width for a 3x4 board */
+        max-height: 550px; /* 3/4 of the max-width */
+    }
+
+    #modalWelcome, #winModalContent {
+        padding: 2px 5px; /* Reduced padding */
+        width: 95vw; /* Slightly increased width */
+    }
+
+    #modalWelcome p,  #winModalContent h2, 
+    #winModalContent p {
+        font-size: 13px; /* Reduced font size */
+        padding: 0.8%; /* Reduced padding */
+    }
+
+    button {
+        font-size: 14px; /* Reduced font size */
+        padding: 8px 15px; /* Reduced padding */
+    }
+
+    #startGame {
+        padding: 8px 20px; /* Reduced padding */
+    }
+
+    #winModalContent label {
+        font-size: 12px; /* Reduced font size */
+        margin-bottom: 5px; /* Reduced margin */
+    }
+
+    #winModalContent input[type="text"], 
+    #winModalContent input[type="email"] {
+        font-size: 12px; /* Reduced font size */
+        padding: 3.5px; /* Reduced padding */
+    }
+
+    .checkbox-container {
+        gap: 3px; /* Reduced gap */
+    }
+
+    #privacyPolicy {
+        width: 12px; /* Reduced width */
+        height: 12px; /* Reduced height */
+    }
 }
 
 @media (max-width: 550px) and (orientation: landscape){
     .game-board {
         gap: 0px;
     }
-    .game-info {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 5px;
-    }
-    #timer {
-        font-size: 20px;
-        background-color: #fff;
-        padding: 5px 10px;
-        border-radius: 5px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+
+    .modal-content, #winModalContent, #thankYouContent{
+        width: 100%;
+        height: 100%;
     }
 }
