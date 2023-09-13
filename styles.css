@@ -1,7 +1,7 @@
 /* === GLOBAL STYLES === */
 body {
     /* margin: 20px; */
-    padding: 0;
+    /* padding: 0; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -200,7 +200,7 @@ button:hover {
     left: 0;
     width: 100vw;
     height: 100vh;
-    display: none;  /* Hidden initially */
+    display: none;
     justify-content: center;
     align-items: center;
     z-index: 1000;  /* Ensure it's above other content */
@@ -239,7 +239,7 @@ button:hover {
 
 #winModalContent input[type="text"], 
 #winModalContent input[type="email"] {
-    width: 100%;
+    width: 95%;
     border: 1px solid rgb(51, 51, 51); 
     border-width: 0.5px;
     padding: 5px; 
@@ -399,6 +399,7 @@ button:hover {
     .modal-content, #winModalContent, #thankYouContent{
         width: 100%;
         height: 100%;
+        max-height: 100vh;
     }
 
     #modalWelcome{
@@ -453,6 +454,11 @@ button:hover {
     #privacyPolicy {
         width: 12px; /* Reduced width */
         height: 12px; /* Reduced height */
+    }
+
+    #winModalContent, #thankYouContent{
+        /* width: 100%; */
+        height: 100vh !important;
     }
 }
 
