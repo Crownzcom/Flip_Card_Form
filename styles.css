@@ -1,7 +1,6 @@
 /* === GLOBAL STYLES === */
 body {
-    /* margin: 20px; */
-    /* padding: 0; */
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -90,7 +89,7 @@ body {
     left: 0;
     width: 100%; 
     height: 100%; 
-    background-color: rgb(243, 247, 250);
+    background-color: rgba(237, 250, 250, 0.082);
     z-index: 1000;
 }
 
