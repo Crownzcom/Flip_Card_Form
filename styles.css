@@ -17,20 +17,26 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    border: solid 5px #025ab900; /*For checking out the container area occupied. Reduce opacity to to view*/
+    border: solid 5px #025ab900;
+    /*For checking out the container area occupied. Reduce opacity to to view*/
 }
 
 /* === GAME BOARD === */
 .game-board {
-    width: 97vw; /* Adjusted to maintain card squareness */
+    width: 97vw;
+    /* Adjusted to maintain card squareness */
     max-width: 720px;
-    height: 72.75vw; /* 3/4 of the width for a 3x4 board */
-    max-height: 550px; /* 3/4 of the max-width */
+    height: 72.75vw;
+    /* 3/4 of the width for a 3x4 board */
+    max-height: 550px;
+    /* 3/4 of the max-width */
     min-height: 100px;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1vw; /* Provides consistent spacing between the cards */
-    border: #ff407c00 solid 2px; /*For checking out the borad area occupied. Reduce opacity to to view*/
+    gap: 1vw;
+    /* Provides consistent spacing between the cards */
+    border: #ff407c00 solid 2px;
+    /*For checking out the borad area occupied. Reduce opacity to to view*/
 }
 
 /* === CARDS === */
@@ -46,7 +52,8 @@ body {
     cursor: pointer;
 }
 
-.card-back, .card-front {
+.card-back,
+.card-front {
     height: 100%;
     width: 100%;
     position: absolute;
@@ -56,7 +63,7 @@ body {
     justify-content: center;
     border: 1px solid rgb(255, 255, 255);
     border-radius: 5px;
-    transition: transform 1s;  
+    transition: transform 1s;
 }
 
 .card-back {
@@ -82,48 +89,6 @@ body {
 }
 
 /* === MODALS === */
-.modal {
-    display: none;
-    position: fixed; 
-    top: 0; 
-    left: 0;
-    width: 100%; 
-    height: 100%; 
-    background-color: rgba(237, 250, 250, 0.082);
-    z-index: 1000;
-}
-
-.modal-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 20px;
-    text-align: center;
-    background-color: #f9f9f9;  
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);  
-    border-radius: 8px;  
-    padding: 20px;  
-}
-
-.modal-content h2 {
-    color: #070707;  
-    font-weight:400;
-    font-size: 24px;  
-    margin-bottom: 15px;  
-}
-
-.modal-content p {
-    color: #888;
-    font-weight:200;
-    font-size: 18px;
-    font-stretch: 100%;
-    line-height: 1.5;  
-}
-
-.modal-buttons {
-    margin-top: 20px;
-}
 
 /* ===Intro modal === */
 #introModal {
@@ -136,17 +101,18 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000;
+
 }
 
 #modalWelcome {
     width: 80vw;
-    max-width: 500px;  /* Added a max-width for better control */
+    max-width: 500px;
+    /* Added a max-width for better control */
     height: auto;
     max-height: 80vh;
     overflow: auto;
     background-color: #ffffff;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 5px 10px;
     display: flex;
@@ -156,40 +122,13 @@ body {
     text-align: center;
 }
 
-#modalWelcome p{
+#modalWelcome p {
     color: #000000;
     font-weight: 500;
     padding: 0.8%;
-    margin: 0;  /* To remove any default margin */
+    margin: 0;
+    /* To remove any default margin */
 }
-
-button {
-    font-weight: 500;
-    padding: 15px 30px;
-    margin: 5px;
-    border: none;
-    background-color: #ff407d;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#startGame { 
-    padding: 15px 40px;
-    animation: pulsate 2s infinite;
-    background-color: #ff407d;
-}
-
-button:hover {
-    background-color: #b90b43;
-}
-
-#startGame {
-    animation: pulsate 2s infinite;
-    background-color: #ff407d;
-}
-
 
 /* Win Modal and CONTACT FORM */
 #winModal {
@@ -202,7 +141,6 @@ button:hover {
     display: none;
     justify-content: center;
     align-items: center;
-    z-index: 1000;  /* Ensure it's above other content */
 }
 
 #winModalContent {
@@ -212,7 +150,7 @@ button:hover {
     max-height: 80vh;
     overflow: auto;
     background-color: #f9f9f9;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 2vw;
 }
@@ -228,37 +166,23 @@ button:hover {
 }
 
 #winModalContent label {
-    display: block;  
-    text-align: left;  
-    padding-bottom: 8px;  
-    line-height: 19.88px;  
-    font-weight: 400;  
-    font-size: clamp(0.8rem, 2.5vw, 1.2rem);  
+    display: block;
+    text-align: left;
+    padding-bottom: 8px;
+    line-height: 19.88px;
+    font-weight: 400;
+    font-size: clamp(0.8rem, 2.5vw, 1.2rem);
 }
 
-#winModalContent input[type="text"], 
+#winModalContent input[type="text"],
 #winModalContent input[type="email"] {
     width: 95%;
-    border: 1px solid rgb(51, 51, 51); 
+    border: 1px solid rgb(51, 51, 51);
     border-width: 0.5px;
-    padding: 5px; 
+    padding: 5px;
     margin-bottom: 10px;
-    border-color: rgb(90, 90, 90); 
+    border-color: rgb(90, 90, 90);
     border-radius: 5px;
-    font-size: clamp(0.8rem, 2vw, 1rem);
-}
-
-.checkbox-container {
-    display: flex;
-    align-items: center;
-    gap: 1vw;
-    flex-direction: row;
-    justify-content: center;
-}
-
-#sendData {
-    align-self: center;
-    margin-top: 20px;
     font-size: clamp(0.8rem, 2vw, 1rem);
 }
 
@@ -270,7 +194,8 @@ button:hover {
     left: 0;
     width: 100vw;
     height: 100vh;
-    display: none;  /* This will hide the modal initially */
+    display: none;
+    /* This will hide the modal initially */
     justify-content: center;
     align-items: center;
 }
@@ -282,7 +207,7 @@ button:hover {
     max-height: 100vh;
     overflow: auto;
     background-color: #ffffff;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 5px 10px;
     display: flex;
@@ -297,7 +222,8 @@ button:hover {
     min-height: 50%;
     max-width: 100%;
     max-height: 70%;
-    margin: 0 auto; /* This centers the image in its container */
+    margin: 0 auto;
+    /* This centers the image in its container */
     object-fit: cover;
     margin-bottom: 6px;
     background-size: cover;
@@ -313,7 +239,7 @@ button:hover {
     height: 40px;
     animation: spin 1s linear infinite;
     margin: 10px auto;
-    z-index: 10;
+    z-index: 20;
     background-color: rgba(255, 255, 255, 0.11);
     position: absolute;
     align-self: center;
@@ -322,16 +248,27 @@ button:hover {
     transform: translate(-50%, -50%);
 }
 
+.btn {
+    background-color: #ff407d !important;
+    border-color: #ff407d !important;
+}
+
+#startGame {
+    animation: pulsate 1s infinite;
+}
+
 /* === KEYFRAMES === */
 @keyframes pulsate {
     0% {
         transform: scale(1);
         opacity: 0.9;
     }
+
     50% {
         transform: scale(1.05);
         opacity: 1;
     }
+
     100% {
         transform: scale(1);
         opacity: 0.9;
@@ -339,69 +276,57 @@ button:hover {
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-  }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
 
 /* Shake animation */
 @keyframes shake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-5px); }
-    50% { transform: translateX(5px); }
-    75% { transform: translateX(-5px); }
-    100% { transform: translateX(0); }
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    75% {
+        transform: translateX(-5px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
 }
 
 /* === MEDIA QUERIES === */
 @media (min-width: 801px) {
     .game-board {
-        grid-template-columns: repeat(5, 1fr); 
+        grid-template-columns: repeat(5, 1fr);
     }
 }
 
 @media (min-width: 601px) {
     .game-board {
-        grid-template-columns: repeat(4, 1fr); 
+        grid-template-columns: repeat(4, 1fr);
     }
 }
 
 @media (max-width: 700px) {
-    .modal-content h2 {
-        font-size: 20px;
-        margin-bottom: 10px;
-    }
-
-    .modal-content p {
-        font-size: 16px;
-    }
-
-    .modal-content label {
-        font-size: 12px;
-    }
-
-    button {
-        padding: 8px 15px;
-        font-size: 14px;
-    }
-
-    .modal-content input[type="text"], 
-    .modal-content input[type="email"] {
-        height: 30px;
-        font-size: 14px;
-        padding: 4px 8px;
-    }
-
     .header-image {
         max-height: 200px;
     }
 
-    .modal-content, #winModalContent, #thankYouContent{
-        width: 100%;
-        height: 100%;
-        max-height: 100vh;
-    }
-
-    #modalWelcome{
+    #modalWelcome {
         width: 80%;
         height: 45%
     }
@@ -409,65 +334,111 @@ button:hover {
 
 @media (max-width: 600px) {
     .game-board {
-        width: 98vw; /* Adjusted to maintain card squareness */
+        width: 98vw;
+        /* Adjusted to maintain card squareness */
         max-width: 720px;
-        height: 73.5vw; /* 3/4 of the width for a 3x4 board */
-        max-height: 550px; /* 3/4 of the max-width */
+        height: 73.5vw;
+        /* 3/4 of the width for a 3x4 board */
+        max-height: 550px;
+        /* 3/4 of the max-width */
     }
 
-    #modalWelcome, #winModalContent {
-        padding: 2px 5px; /* Reduced padding */
-        width: 95vw; /* Slightly increased width */
+    #modalWelcome,
+    #winModalContent {
+        padding: 2px 5px;
+        /* Reduced padding */
+        width: 95vw;
+        /* Slightly increased width */
     }
 
-    #modalWelcome p,  #winModalContent h2, 
+    #modalWelcome p,
+    #winModalContent h2,
     #winModalContent p {
-        font-size: 13px; /* Reduced font size */
-        padding: 0.8%; /* Reduced padding */
-    }
-
-    button {
-        font-size: 14px; /* Reduced font size */
-        padding: 8px 15px; /* Reduced padding */
-    }
-
-    #startGame {
-        padding: 8px 20px; /* Reduced padding */
+        font-size: 13px;
+        /* Reduced font size */
+        padding: 0.8%;
+        /* Reduced padding */
     }
 
     #winModalContent label {
-        font-size: 12px; /* Reduced font size */
-        margin-bottom: 5px; /* Reduced margin */
+        font-size: 12px;
+        /* Reduced font size */
+        margin-bottom: 5px;
+        /* Reduced margin */
     }
 
-    #winModalContent input[type="text"], 
+    #winModalContent input[type="text"],
     #winModalContent input[type="email"] {
-        font-size: 12px; /* Reduced font size */
-        padding: 3.5px; /* Reduced padding */
-    }
-
-    .checkbox-container {
-        gap: 3px; /* Reduced gap */
+        font-size: 12px;
+        /* Reduced font size */
+        padding: 3.5px;
+        /* Reduced padding */
     }
 
     #privacyPolicy {
-        width: 12px; /* Reduced width */
-        height: 12px; /* Reduced height */
+        width: 12px;
+        /* Reduced width */
+        height: 12px;
+        /* Reduced height */
     }
 
-    #winModalContent, #thankYouContent{
+    #winModalContent,
+    #thankYouContent {
         /* width: 100%; */
         height: 100vh !important;
     }
 }
 
-@media (max-width: 550px) and (orientation: landscape){
+@media (max-width: 550px) and (orientation: landscape) {
     .game-board {
         gap: 0px;
     }
+}
 
-    .modal-content, #winModalContent, #thankYouContent{
-        width: 100%;
-        height: 100%;
-    }
+.checkbox-container {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 10px;
+    /* Some spacing between the checkbox and the label */
+}
+
+.checkbox-container input[type="checkbox"] {
+    vertical-align: middle;
+}
+
+.checkbox-container label {
+    vertical-align: middle;
+}
+
+.checkbox-container input[type="checkbox"] {
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+}
+
+.checkbox-container label {
+    vertical-align: middle;
+    margin: 0;
+    padding: 0;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-top: -3px;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.checkbox-container input[type="checkbox"] {
+    margin-right: 10px;
+    /* Adding some space between the checkbox and the label */
+    position: static;
+    /* Resetting the absolute positioning */
+    transform: none;
+    /* Resetting the translateY transformation */
 }

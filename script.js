@@ -18,6 +18,11 @@ let cards
 let flippedCards = []
 let matchedPairs = 0
 
+$(document).ready(function () {
+  $('#introModal').modal({backdrop: 'static', keyboard: false}).modal('show')
+  showIntroModal()
+})
+
 // ==========================
 // EVENT LISTENERS
 // ==========================
@@ -38,11 +43,10 @@ document.addEventListener('DOMContentLoaded', function () {
 // Display the intro modal
 function showIntroModal () {
   const modal = document.getElementById('introModal')
-  modal.style.display = 'block'
 
   const startGame = document.getElementById('startGame')
   startGame.onclick = function () {
-    modal.style.display = 'none'
+    $(modal).modal('hide')
   }
 }
 
@@ -159,7 +163,7 @@ function handleMismatch () {
 // Display the win modal
 function showWinModal () {
   const modal = document.getElementById('winModal')
-  modal.style.display = 'block'
+  $(modal).modal('show')
 }
 
 // Reset the game state
@@ -167,7 +171,6 @@ function resetGameState () {
   matchedPairs = 0
   cards.forEach(card => card.classList.remove('flipped'))
   shuffleCards()
-  document.getElementById('replay').classList.add('hidden')
 }
 
 // ==========================
@@ -256,13 +259,13 @@ sendDataButton.addEventListener('click', async function () {
 // Handle successful form submission
 function handleSuccessfulSubmission () {
   document.querySelector('.game-container').style.display = 'none'
-  document.getElementById('winModal').style.display = 'none'
-  document.getElementById('thankYouModal').style.display = 'block'
+  $('#winModal').modal({backdrop: 'static', keyboard: false}).modal('hide')
+  $('#thankYouModal').modal({backdrop: 'static', keyboard: false}).modal('show')
 }
 
 // Restart the game after form submission
 document.getElementById('restartGame').addEventListener('click', function () {
-  document.getElementById('thankYouModal').style.display = 'none'
+  $('#thankYouModal').modal({backdrop: 'static', keyboard: false}).modal('hide')
   document.querySelector('.game-container').style.display = 'flex'
   resetGameState()
 })
