@@ -201,9 +201,8 @@ body {
 }
 
 #thankYouContent {
-    width: 50vw;
     height: auto;
-    height: 80vh;
+    height: 75vh;
     max-height: 100vh;
     overflow: auto;
     background-color: #ffffff;
