@@ -13,26 +13,27 @@
     <title>City-Country Match Game</title>
 
     <!-- Stylesheet -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-    <!-- INTRO MODAL -->
-    <div class="modal fade" id="introModal" data-backdrop="static">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content" id="modalWelcome">
-                <p>Can you match cities to the countries they belong?</p>
-                <div class="modal-buttons">
-                    <button class="btn btn-primary" id="startGame">Yes</button>
-                </div>
+    <!-- ==========================
+    INTRO MODAL
+    ========================== -->
+    <div class="modal" id="introModal">
+        <div class="modal-content" id="modalWelcome">
+            <!-- <h2>Welcome!</h2> -->
+            <p>Can you match cities to the countries they belong?</p>
+            <div class="modal-buttons">
+                <button id="startGame">Yes</button>
             </div>
         </div>
     </div>
 
-
-    <!-- GAME CONTAINER -->
+    <!-- ==========================
+    GAME CONTAINER
+    ========================== -->
     <div class="game-container">
 
         <!-- Game Board (Cards will be dynamically generated here) -->
@@ -41,60 +42,51 @@
         </div>
     </div>
 
-    <!-- WIN MODAL WITH CONTACT FORM -->
-    <div class="modal fade" id="winModal" data-backdrop="static">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content" id="winModalContent">
-                <h2>Congratulations!</h2>
-                <p>You have matched all the cities to the countries they belong.</p>
-                <p>Please provide your name and email to receive information about our discounted offers</p>
+    <!-- ==========================
+    WIN MODAL WITH CONTACT FORM
+    ========================== -->
+    <div class="modal" id="winModal">
+        <div class="modal-content" id="winModalContent">
+            <h2>Congratulations!</h2>
+            <p>You have matched all the cities to the countries they belong.</p>
+            <p>Please provide your name and email to receive information about our discounted offers</p>
 
-                <!-- Name Input -->
-                <label class="form-label" for="firstName">First name</label>
-                <input type="text" class="form-control" id="firstName">
+            <!-- Name Input -->
+            <label for="firstName">First name</label>
+            <input type="text" id="firstName">
 
-                <!-- Email Input -->
-                <label class="form-label" for="email">Email</label>
-                <input type="email" class="form-control" id="email" required>
+            <!-- Email Input -->
+            <label for="email">Email</label>
+            <input type="email" id="email" required>
 
-                <!-- Privacy Policy Checkbox -->
-                <div class="checkbox-container">
-                    <div class="checkbox-wrapper">
-                        <input type="checkbox" id="privacyPolicy">
-                        <label class="form-label" for="privacyPolicy">Agree with <a
-                                href="https://interactivityhub.com/privacy_policy" target="_blank"
-                                rel="noopener noreferrer">Privacy Policy</a></label>
-                    </div>
-                </div>
-
-                <!-- Send Button -->
-                <button class="btn btn-primary" id="sendData" class="disabled-button"
-                    style="display: block; margin: 0 auto;" disabled type="button" id="sendData">Send</button>
+            <!-- Privacy Policy Checkbox -->
+            <div class="checkbox-container">
+                <input type="checkbox" id="privacyPolicy">
+                <label for="privacyPolicy">Agree with <a href="https://interactivityhub.com/privacy_policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a></label>
             </div>
+
+            <!-- Send Button -->
+            <button id="sendData" class="disabled-button" style="display: block; margin: 0 auto;" disabled type="button">Send</button>
         </div>
     </div>
 
-    <!-- THANK YOU MODAL -->
-    <div class="modal fade" id="thankYouModal" data-backdrop="static">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content" id="thankYouContent">
-                <!-- Header Image -->
-                <img src="images/happy.jpeg" alt="Header Image" class="header-image">
+    <!-- ==========================
+    THANK YOU MODAL
+    ========================== -->
+    <div class="modal" id="thankYouModal">
+        <div class="modal-content" id="thankYouContent">
+            <!-- Header Image -->
+            <img src="images/happy.jpeg" alt="Header Image" class="header-image">
 
-                <!-- Thank You Message -->
-                <h2>Thank you!</h2>
-                <p>We hope you had an enjoyable experience here.</p>
+            <!-- Thank You Message -->
+            <h2>Thank you!</h2>
+            <p>We hope you had an enjoyable experience here.</p>
 
-                <!-- Restart Button -->
-                <button class="btn btn-primary" id="restartGame" type="button">&#x21BB; Restart</button>
-            </div>
+            <!-- Restart Button -->
+            <button id="restartGame" type="button">&#x21BB; Restart</button>
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
